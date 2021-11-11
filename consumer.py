@@ -36,17 +36,7 @@ print("subscription: {0}".format(consumer.subscription()))
 print("consumer partitions for topic: {0}".format(consumer.partitions_for_topic('test')))
 print("bootstrap connected: {0}".format(consumer.bootstrap_connected()))
 
-# Read and print message from consumer
-#for msg in consumer:
-#    print("Topic Name=%s,Message=%s"%(msg.topic,msg.value))
-
-#print(consumer.poll(1000))
-
 for message in consumer:
-    # message value and key are raw bytes -- decode if necessary!
-    # e.g., for unicode: `message.value.decode('utf-8')`
     print ("topic: {0} partition: {1} offset: {2}  value={3}".format(message.topic, message.partition, message.offset, message.value))
 
-# Terminate the script
-# sys.exit()
 
